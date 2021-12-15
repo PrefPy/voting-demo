@@ -1,0 +1,73 @@
+.ApplyRule{
+    flex:1;
+    display:flex;
+    width:100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-zone{
+    width:100%;
+    margin-bottom:20px;
+    text-align: center;
+}
+
+/* .upload-zone h2{
+    text-align: center;
+} */
+
+
+.upload-holder{
+    display: none;
+}
+
+.preset-rules{
+    width:80%;
+}
+
+.apply-zone{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preset-rules{
+    margin-bottom:5px;
+}
+
+.apply-button{
+    display:flex;
+    justify-content: center;
+    width:30%;
+    margin-top: 20px;
+}
+
+.choose-learned-rule{
+    width:80%;
+    text-align:center;
+}
+
+.checkboxButton{
+    border:1px black solid;
+    margin: 5px 0px;
+    width:100%;
+    border-radius: 3px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.checkboxButton span{
+    width:100%;
+}
+
+.checkboxButton .ant-checkbox{
+    display: none;
+}
+
+.checkboxButton.ant-checkbox-wrapper-checked{
+    border: 1px solid #1890ff;
+    box-shadow: 0 0 4px 0 rgba(0, 71, 190, 0.2);
+    color: #1890ff;
+}

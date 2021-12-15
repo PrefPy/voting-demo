@@ -1,0 +1,58 @@
+.voting-result{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:10%;
+    /* justify-content: center; */
+    font-size: medium;
+    padding:0px 20px;
+}
+
+.voting-result table{
+    border: solid black 2px;
+    text-align: center;
+    table-layout: fixed;
+    width:100%;
+}
+
+.voting-result .theader{
+    background-color: skyblue;
+    font-weight: bold;
+}
+
+.voting-result th {
+    min-width:150px;
+}
+
+.voting-result tr{
+    background-color: white;
+    border:solid grey 1px;
+}
+
+.voting-result .button:hover{
+    cursor:pointer;
+}
+
+.voting-result .remark{
+    display: flex;
+    flex-direction: row;
+    width:80%;
+    justify-content: center;
+    align-items: center;
+    margin:20px 0px;
+}
+
+.voting-result .remark span{
+    /* flex:0.1 */
+    margin-right:20px;
+}
+
+.voting-result .remark div{
+    display: flex;
+    flex-direction: column;
+}
+
+.voting-result .remark p{
+    max-height:6px
+}

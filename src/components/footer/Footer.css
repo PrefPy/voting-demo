@@ -1,0 +1,15 @@
+.Footer{
+    display:flex;
+    height:100px;
+    padding:0px 50px;
+    font-size: medium;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+.Footer div{
+    text-align: center;
+    margin: 0px 20px;
+}

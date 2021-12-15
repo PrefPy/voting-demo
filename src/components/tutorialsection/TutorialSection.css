@@ -1,0 +1,44 @@
+.TutorialSection .ant-btn.ant-btn-link{
+    color:rgb(65, 15, 78);
+    font-weight: bold;
+}
+
+.intro-body{
+    background-color: rgb(138, 193, 207);
+    border-bottom: grey solid 1px;
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 20px 0px 20px;
+}
+
+.intro-body .main-content{
+    padding: 10px 20px;
+}
+
+.intro-body.collapsed .main-content{
+    display:none
+}
+
+.references{
+    margin-top:20px;
+    font-size: smaller;
+    margin-bottom:10px;
+}
+
+.intro-detail{
+    background-color: rgb(150, 235, 164);
+    border-radius: 10px;
+    padding: 0px 20px;
+}
+
+.intro-detail.expanded {
+    /* height:200px; */
+}
+
+.abstract-body{
+    display: none;
+    padding: 20px 20px;
+}
+
+.intro-detail.expanded .abstract-body{
+    display:block
+}
