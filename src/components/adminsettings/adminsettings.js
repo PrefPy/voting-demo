@@ -20,10 +20,10 @@ const AdminSettings = props => {
     const serveroptions = [
                             {
                                 label:'local',
-                                value:'http://localhost:5001/'
+                                value:'http://localhost:5000/'
                             },{
                                 label:'opra',
-                                value:'https://opra.cs.rpi.edu/polls/voting'
+                                value:'https://voting-demo-backend.herokuapp.com'
                             }
                         ]
                         

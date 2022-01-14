@@ -22,7 +22,7 @@ const App = () => {
 	);
 }
 
-export const server = 'https://opra.cs.rpi.edu/polls/voting'
+// export const server = 'https://opra.cs.rpi.edu/polls/voting'
 
 // for local debugging
 // export const server = 'http://127.0.0.1:5001' 

@@ -84,7 +84,7 @@ const StartPage = props => {
 
     return(
         <div className="StartPage">
-            {/* <AdminSettings settings={props.settings} setSettings={props.setSettings} /> */}
+            <AdminSettings settings={props.settings} setSettings={props.setSettings} />
             <TutorialSection />
             <div className="simulation-area">
                 <StartForm onSubmit={onSubmit} simuInput={state.simuInput} setSimuInput={setSimuInput} setOutputType={setOutputType}/>
