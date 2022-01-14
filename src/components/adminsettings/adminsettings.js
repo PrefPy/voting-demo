@@ -20,7 +20,7 @@ const AdminSettings = props => {
     const serveroptions = [
                             {
                                 label:'local',
-                                value:'http://localhost:8000/voting'
+                                value:'http://localhost:5001/'
                             },{
                                 label:'opra',
                                 value:'https://opra.cs.rpi.edu/polls/voting'

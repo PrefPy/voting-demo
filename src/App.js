@@ -6,7 +6,7 @@ import StartPage from './pages/startpage/StartPage.js';
 import 'antd/dist/antd.css';
 
 const App = () => {
-	const [state, setstate] = useState({server:'https://opra.cs.rpi.edu/polls/voting'})
+	const [state, setstate] = useState({server:'https://voting-demo-backend.herokuapp.com'})
 
 	return (
 		<div>
@@ -25,10 +25,10 @@ const App = () => {
 export const server = 'https://opra.cs.rpi.edu/polls/voting'
 
 // for local debugging
-// export const server = 'http://127.0.0.1:5000' 
+// export const server = 'http://127.0.0.1:5001' 
 
 // for heroku server
-// export const server = 'votingsim.herokuapp.com'
+// export const server = 'https://voting-demo-backend.herokuapp.com'
 
 
 export default App
