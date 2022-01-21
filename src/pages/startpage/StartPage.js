@@ -33,10 +33,10 @@ const resultData = {
 const learned_models = [
         {name: 'LVR1',
         type:'xgboost',
-        raw_data:''},
+        xgboost_idx:''},
         {name: 'LVR2',
         type:'xgboost',
-        raw_data:''}
+        xgboost_idx:''}
 ]
 
 const StartPage = props => {
@@ -50,6 +50,10 @@ const StartPage = props => {
         setState({...state,simuInput:data})
     }
 
+    const onError = () => {
+        setState({...state,showError:true})
+    }
+
 
     const onSubmit = () => {
         console.log(`sending ${JSON.stringify(state.simuInput)}`)
@@ -60,10 +64,10 @@ const StartPage = props => {
                         console.log('got this in  return')
                         console.log(res.data.display)
                         if(res.data.display !== undefined){
-                            setState({...state,result:res.data.display})
+                            setState({...state,result:res.data.display,learned_models:res.data.learned_models})
                         }else{
                             console.log(res.data)
-                            setState({...state,showError:true})
+                            onError()
                         }
 
                         //     props.history.push({pathname:'/result',state:{resultData:res.data, simuInput:simuInput}})
@@ -84,11 +88,11 @@ const StartPage = props => {
 
     return(
         <div className="StartPage">
-            <AdminSettings settings={props.settings} setSettings={props.setSettings} />
+            {/* <AdminSettings settings={props.settings} setSettings={props.setSettings} /> */}
             <TutorialSection />
             <div className="simulation-area">
                 <StartForm onSubmit={onSubmit} simuInput={state.simuInput} setSimuInput={setSimuInput} setOutputType={setOutputType}/>
-                <SimuOutput simuInput={state.simuInput} output={state.result} learned_models={state.learned_models}/>
+                <SimuOutput simuInput={state.simuInput} output={state.result} learned_models={state.learned_models} onError={onError} settings={props.settings}/>
             </div>
             <Modal {...errorModalOptions}>
                 Something bad happened! Check server logs

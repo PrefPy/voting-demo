@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Typography, Radio, Button } from 'antd'
-import ApplyRule from '../applyrule/ApplyRule'
+import ApplyRuleResult from '../applyruleresult/ApplyRuleResult'
+import axios from 'axios'
 
 import SimResult from '../simresult/SimResult.js'
+import { trackPromise } from 'react-promise-tracker'
 
 import './simuoutput.css'
 
@@ -16,12 +18,12 @@ const names = {
 const SimuOutput = props => {
     const privacy_vals = props.output.map((o,i) => ({label:o.privacy,value:i}))
 
-    const [state, setstate] = useState({privacy:0});
+    const [state, setstate] = useState({privacy:0,applyresult:{},showResult:false});
 
     const onPrivacyChange = e => {
         setstate({...state,privacy:e.target.value})
     }
-    
+   
     return(
         <div className="SimuOutput">
             <Title level={3}>Generation output</Title>
@@ -58,7 +60,8 @@ const SimuOutput = props => {
                     <>
                         <SimResult resultData={props.output[state.privacy]}/>
                         {privacy_vals.length > 1 ?
-                            <ApplyRule leanred_models={props.learned_models} simuInput={props.simuInput} style={{marginTop:20}}/>
+                            // <ApplyRule learned_models={props.learned_models} simuInput={props.simuInput} style={{marginTop:20}}  onApply={onApply}/>
+                            <ApplyRuleResult learned_models={props.learned_models} settings={props.settings}/>
                         :''}
                     </>
                     : 

@@ -8,6 +8,7 @@ const SimResult = props => {
 
 	console.log(props.resultData)
 	return (
+		// <>Sike!</>
 		<div className="voting-result">
 			<table>
 				<tbody>

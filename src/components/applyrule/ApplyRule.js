@@ -38,7 +38,8 @@ const ApplyRule = props => {
         setstate({ ...state, userinput: { ...state.userinput, ...newvals } })
     }
 
-    const showmodal = () => {
+    const apply = () => {
+        props.onApply()
         setstate({...state,showmodal:true})
     }
 
@@ -55,8 +56,8 @@ const ApplyRule = props => {
             const reader = new FileReader()
             reader.onload = e => {
                 const filetype = file.name.split('.')[1]
-                // setstate({...state,userinput:{...state.userinput,type:filetype,raw_data:e.target.result}})
-                setuserinput({ preference_profile: { type: filetype, raw_data: e.target.result } })
+                // setstate({...state,userinput:{...state.userinput,type:filetype,xgboost_idx:e.target.result}})
+                setuserinput({ preference_profile: { type: filetype, xgboost_idx: e.target.result } })
             }
             reader.readAsText(file);
             return false;
@@ -64,8 +65,8 @@ const ApplyRule = props => {
     };
 
     const choose_learned = rulename => {
-        const raw_data = props.learned_models.find(o => o.name === rulename).raw_data
-        setuserinput({ chosen_learned_rules: { name: rulename, raw_data: raw_data } })
+        const xgboost_idx = props.learned_models.find(o => o.name === rulename).xgboost_idx
+        setuserinput({ chosen_learned_rules: { name: rulename, xgboost_idx: xgboost_idx } })
     }
 
     const choose_trad = names => {
@@ -111,10 +112,11 @@ const ApplyRule = props => {
                 <Text style={{marginBottom:10}}>
                     Click this button to view the results of the displayed voting rules with your own data!
                 </Text>
-                <Button onClick={showmodal} >Apply Voting Rule</Button>
+                <Button onClick={apply} >Apply Voting Rule</Button>
             </>
             <Modal visible={state.showmodal} onCancel={handleclose} footer={null}>
-                <div className="upload-zone">
+                <Text>Sike!</Text>
+                {/* <div className="upload-zone">
                     <h2>Import a preference profile</h2>
                     <div className="example">
                         An example file is available <a type="download" href={example_link} target="_blank" rel="noopener noreferrer">here</a>
@@ -148,11 +150,11 @@ const ApplyRule = props => {
                             )}
                         </Checkbox.Group>
                     </div>
-                    {/* <Select defaultValue="Choose from learned rules" className="choose-learned-rule" onSelect={choose_learned}>
+                    <Select defaultValue="Choose from learned rules" className="choose-learned-rule" onSelect={choose_learned}>
                         {props.learned_models.map(rule => <Option value={rule.name} key={rule.name}>{rule.name}</Option>)}
-                    </Select> */}
+                    </Select>
                     <Button className="apply-button" {...apply_button} onClick={showPopup} >Apply Voting Rules</Button>
-                </div>
+                </div> */}
             </Modal>
         </>
     )
