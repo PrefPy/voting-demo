@@ -64,18 +64,7 @@ const allinputs = [
                 max: 1.00,
                 step: 0.01
             }
-        }, {
-            field: 'neutrality',
-            label: 'Neutrality Requirement',
-            info: 'Real number between 0~1. Higher value means higher probability that the voting rule will satisfy the neutrality property.',
-            required: false,
-            detail: {
-                type: 'slider',
-                min: 0.01,
-                max: 1.00,
-                step: 0.01
-            }
-        }, {
+        },{
             field: 'monotonicity',
             label: 'Monotonicity Requirement',
             info: 'Real number between 0~1. Higher value means higher probability that the voting rule will satisfy the monotonicity property',
@@ -87,6 +76,18 @@ const allinputs = [
                 step: 0.01
             }
         },
+        // {
+        //     field: 'neutrality',
+        //     label: 'Neutrality Requirement',
+        //     info: 'Real number between 0~1. Higher value means higher probability that the voting rule will satisfy the neutrality property.',
+        //     required: false,
+        //     detail: {
+        //         type: 'slider',
+        //         min: 0.01,
+        //         max: 1.00,
+        //         step: 0.01
+        //     }
+        // }, 
         //  {
         //     field: 'privacy_req',
         //     label: 'Privacy Requirement',
