@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/voting-demo/static/css/main.52832227.chunk.css",
-    "main.js": "/voting-demo/static/js/main.7e22ca69.chunk.js",
-    "main.js.map": "/voting-demo/static/js/main.7e22ca69.chunk.js.map",
+    "main.css": "/voting-demo/static/css/main.c37fe197.chunk.css",
+    "main.js": "/voting-demo/static/js/main.4231a893.chunk.js",
+    "main.js.map": "/voting-demo/static/js/main.4231a893.chunk.js.map",
     "runtime-main.js": "/voting-demo/static/js/runtime-main.56c63eaf.js",
     "runtime-main.js.map": "/voting-demo/static/js/runtime-main.56c63eaf.js.map",
     "static/css/2.0ce74623.chunk.css": "/voting-demo/static/css/2.0ce74623.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.3d76b6cf.chunk.js.map": "/voting-demo/static/js/2.3d76b6cf.chunk.js.map",
     "index.html": "/voting-demo/index.html",
     "static/css/2.0ce74623.chunk.css.map": "/voting-demo/static/css/2.0ce74623.chunk.css.map",
-    "static/css/main.52832227.chunk.css.map": "/voting-demo/static/css/main.52832227.chunk.css.map",
+    "static/css/main.c37fe197.chunk.css.map": "/voting-demo/static/css/main.c37fe197.chunk.css.map",
     "static/js/2.3d76b6cf.chunk.js.LICENSE.txt": "/voting-demo/static/js/2.3d76b6cf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.56c63eaf.js",
     "static/css/2.0ce74623.chunk.css",
     "static/js/2.3d76b6cf.chunk.js",
-    "static/css/main.52832227.chunk.css",
-    "static/js/main.7e22ca69.chunk.js"
+    "static/css/main.c37fe197.chunk.css",
+    "static/js/main.4231a893.chunk.js"
   ]
 }
