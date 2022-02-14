@@ -4,9 +4,18 @@ import { Typography } from 'antd';
 
 const { Text,Title } = Typography
 
+const parseRemark = rawtext => {
+	let lines = []
+	for(let l of rawtext.split('\n')){
+		lines.push(l)
+		lines.push(<br/>)
+	}
+	return lines
+}
+
 const SimResult = props => {
 
-	console.log(props.resultData)
+	// console.log(props.resultData)
 	return (
 		// <>Sike!</>
 		<div className="voting-result">
@@ -24,14 +33,17 @@ const SimResult = props => {
 					))}
 				</tbody>
 			</table>
-			<div className="remark">
-				<Text strong={true}>Remark: </Text> 
-				<div>
-					{props.resultData.tabledata.remark.split('\n').map( l =>
-						<p>{l}</p>
-					)}					
+			{
+				props.showRemark !== undefined && !props.showRemark ?
+				<></>
+				:
+				<div className="remark">
+					<Text strong={true}>Remark: </Text> 
+					<Text>
+					{parseRemark(props.resultData.tabledata.remark)}
+					</Text>
 				</div>
-			</div>
+			}
 		</div>
 	);
 }

@@ -26,7 +26,7 @@ const SimuOutput = props => {
    
     return(
         <div className="SimuOutput">
-            <Title level={3}>Generation output</Title>
+            <Title level={3}>Output</Title>
             <Title level={5}>
                 {props.output ?
                     props.output.length > 1 ? 
@@ -35,8 +35,6 @@ const SimuOutput = props => {
                         "Values for traditional voting rules"
                     :''}
             </Title>
-            {props.output && props.output.length === 1 ? 
-            <Text>Adding more input will update the table with more results!</Text>:''}
             <div className="maincontent">
                 <div className="choose-table">
                     {/* {props.output.length > 0 ?
@@ -58,7 +56,7 @@ const SimuOutput = props => {
                 </div>
                 { props.output.length > 0 ?
                     <>
-                        <SimResult resultData={props.output[state.privacy]}/>
+                        <SimResult resultData={props.output[state.privacy]} showRemark={!(props.output && props.output.length === 1)}/>
                         {privacy_vals.length > 1 ?
                             // <ApplyRule learned_models={props.learned_models} simuInput={props.simuInput} style={{marginTop:20}}  onApply={onApply}/>
                             <ApplyRuleResult learned_models={props.learned_models} settings={props.settings}/>
@@ -66,8 +64,11 @@ const SimuOutput = props => {
                     </>
                     : 
                     <div className="startmessage">
-                        {`No input loaded yet.
-                        Press the Generate Voting Rule button to reload the sample output!`}
+                        <Text>
+                            No output generated yet.
+                            <br/>
+                            Click <b>Check existing voting rules</b> or <b>Generate new voting rule</b>!
+                        </Text>
                     </div>
                 }
             </div>

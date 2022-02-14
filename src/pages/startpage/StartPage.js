@@ -56,17 +56,17 @@ const StartPage = props => {
 
 
     const onSubmit = () => {
-        console.log(`sending ${JSON.stringify(state.simuInput)}`)
-        console.log(`${props.settings.server}/run_sim`)
+        // console.log(`sending ${JSON.stringify(state.simuInput)}`)
+        // console.log(`${props.settings.server}/run_sim`)
         
         trackPromise(
                     axios.post(`${props.settings.server}/run_sim`,state.simuInput).then(res=>{
-                        console.log('got this in  return')
-                        console.log(res.data.display)
+                        // console.log('got this in  return')
+                        // console.log(res.data.display)
                         if(res.data.display !== undefined){
                             setState({...state,result:res.data.display,learned_models:res.data.learned_models})
                         }else{
-                            console.log(res.data)
+                            // console.log(res.data)
                             onError()
                         }
 

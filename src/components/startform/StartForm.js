@@ -1,12 +1,12 @@
 import './StartForm.css';
-import { Input, Form, Radio, Button, Row, Typography,Col } from 'antd';
+import { Input, Form, Radio, Button, Row, Typography,Col,Tooltip } from 'antd';
 import InputSlider from '../inputslider/InputSlider';
 import { useState } from 'react';
 
 
 const allinputs = [
     {
-        type: 'Simulation input',
+        type: 'Voting scenario',
         inputs:[{   
             field: 'no_candidates',  
             label: 'Number of Candidates',               
@@ -30,7 +30,7 @@ const allinputs = [
                 step: 0.01
             }
         }]}, {
-        type: 'Desired axioms',
+        type: 'Desired property levels',
         inputs:[{
             field: 'gr_fair_req',
             label: 'Group Fairness Requirement',
@@ -119,7 +119,7 @@ const StartForm = props => {
             value = value.target.value
         
         props.setSimuInput({...props.simuInput, [field]:value})
-        console.log(props.simuInput)
+        // console.log(props.simuInput)
     }
 
     const setTraditional = () => {
@@ -169,7 +169,7 @@ const StartForm = props => {
                 onFinish={props.onSubmit}
                 >
                 {
-                    allinputs.map(group => (
+                    allinputs.map((group,i) => (
                         <div className="inputgroup">
                             <div className="title">{group.type}</div>
                             {group.inputs.map(inp=>
@@ -181,17 +181,31 @@ const StartForm = props => {
                                     tooltip={inp.info}>
                                     {makedom(inp)}
                                 </Form.Item>)}
+                            {i === allinputs.length-1 ?
+                            <Row type="flex" justify="center" align="middle" 
+                            style={{marginBottom:10}}
+                            >
+                                <Tooltip
+                                    placement='right'
+                                    title='Check the outcome under traditional voting rules, such as Borda, Copeland and maximin'
+                                >
+                                    <Button 
+                                        type="primary"
+                                        htmlType="submit"
+                                        onClick={setTraditional}>
+                                            Check existing voting rules
+                                    </Button>
+                                </Tooltip>
+                            </Row>
+                            :
+                                <></>
+                            }
                         </div>
                     
                     ))
                 }
                 <Row type="flex" justify="center" align="middle" style={{marginBottom:10}}>
-                    <Col span={10}>
-                        <Button type="primary" htmlType="submit" onClick={setTraditional}>Check Traditional Output</Button>
-                    </Col>
-                    <Col span={10}>
-                        <Button type="primary" htmlType="submit" onClick={setLearnedRules}>Generate Voting Rule</Button>
-                    </Col>
+                    <Button type="primary" htmlType="submit" onClick={setLearnedRules}>Generate Voting Rule</Button>
                 </Row>
             </Form>
         </div>

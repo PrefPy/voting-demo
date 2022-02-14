@@ -86,8 +86,8 @@ const ApplyRule = props => {
         trackPromise(
             axios.post(`${props.settings.server}/apply_rule`, state.userinput).then(
                 res => {
-                    console.log('passing this')
-                    console.log(res)
+                    // console.log('passing this')
+                    // console.log(res)
                     props.setPopupState({ showPopup: true, resultData: res.data })
                 }
             )

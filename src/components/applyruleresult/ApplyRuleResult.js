@@ -23,18 +23,18 @@ const ApplyRuleResult = props => {
     }
 
     const onApply = () => {
-        console.log(`sending ${JSON.stringify(props.learned_models)}`)
-        console.log(`${props.settings.server}/apply`)
+        // console.log(`sending ${JSON.stringify(props.learned_models)}`)
+        // console.log(`${props.settings.server}/apply`)
         trackPromise(
                     axios.post(`${props.settings.server}/apply`,{
                                     learned_models:props.learned_models
                     }).then(res=>{
-                        console.log('got this in  return')
-                        console.log(res.data)
+                        // console.log('got this in  return')
+                        // console.log(res.data)
                         if(res.data !== undefined){
                             setstate({...state,result:res.data,showModal:true})
                         }else{
-                            console.log(res.data)
+                            // console.log(res.data)
                             props.onError()
                         }
 
