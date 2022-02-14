@@ -43,7 +43,7 @@ The user must define the voting scenario with the number of candidates in the vo
 {/* <br/> */}
 Additionally, the user can define different requirement level for various properties.<br/>
 {/* <br/> */}
-Clicking "Check Traditional Output" will show average values of the different properties for traditional voting rules Copeland, Maximin and Borda.
+Clicking "Check existing voting rules" will show average values of the different properties for traditional voting rules Copeland, Maximin and Borda.
 After inputting different property requirements (can choose a subset of properties), clicking Generate Voting Rule will use our learning based method to design a voting rule that tries to satisfy the requirements. If no such voting rule can be designed (because of impossibility results), the best closest rule will be generated.<br/>
 {/* <br/> */}
 After new voting rules are generated, the user can apply the newly designed voting rule on any new voting profile.
