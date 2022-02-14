@@ -1,6 +1,7 @@
 import './SimResult.css';
 import 'antd/dist/antd.css';
 import { Typography } from 'antd';
+import { uuid } from 'uuidv4'
 
 const { Text,Title } = Typography
 
@@ -22,12 +23,12 @@ const SimResult = props => {
 			<table>
 				<tbody>
 					<tr className="theader">
-						{props.resultData.tabledata.columns.map(col=><th key={col}>{col}</th>)}
+						{props.resultData.tabledata.columns.map(col=><th key={uuid()}>{col}</th>)}
 					</tr>
 					{ props.resultData.tabledata.rows.map(row=>(
 						<tr key={ row[0] }>
 							{
-								row.map(box => <td key={row[0]+box}>{ box }</td>)	
+								row.map(box => <td key={uuid()}>{ box }</td>)	
 							}
 						</tr>
 					))}

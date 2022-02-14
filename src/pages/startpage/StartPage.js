@@ -61,8 +61,8 @@ const StartPage = props => {
         
         trackPromise(
                     axios.post(`${props.settings.server}/run_sim`,state.simuInput).then(res=>{
-                        // console.log('got this in  return')
-                        // console.log(res.data.display)
+                        console.log('got this in  return')
+                        console.log(res.data.display)
                         if(res.data.display !== undefined){
                             setState({...state,result:res.data.display,learned_models:res.data.learned_models})
                         }else{
