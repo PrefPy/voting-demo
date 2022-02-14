@@ -42,3 +42,7 @@
 .intro-detail.expanded .abstract-body{
     display:block
 }
+
+.vidlink{
+    text-decoration: underline;
+}
