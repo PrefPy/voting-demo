@@ -6,7 +6,7 @@ import StartPage from './pages/startpage/StartPage.js';
 import 'antd/dist/antd.css';
 
 const App = () => {
-	const [state, setstate] = useState({server:'https://voting-demo-backend.herokuapp.com'})
+	const [state, setstate] = useState({server:'https://voting-demo-backend.onrender.com'})
 	// const [state, setstate] = useState({server:'http://127.0.0.1:5001/'})
 	return (
 		<div>
