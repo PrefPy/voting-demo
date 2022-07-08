@@ -1,29 +1,68 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useRef } from 'react';
 // import StartPage from './pages/startpage/StartPage.js';
 // import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import 'antd/dist/antd.css';
-import { Form, Layout, Tabs } from 'antd';
+import { Button, Form, Layout, Steps, Tabs, Row, Col } from 'antd';
 
+import fields from './fields.json'
 import Intro from './pages/Intro/Intro.js';
-import VotingProfile from './pages/VotingProfile/VotingProfile.js';
+import VotingSetup from './pages/VotingSetup/VotingSetup.js';
+import ExistingRules from './pages/ExistingRules/ExistingRules.js';
+import VotingAxioms from './pages/VotingAxioms/VotingAxioms.js';
+import LearnNewRule from './pages/LearnNewRule/LearnNewRule.js';
+
+export const server = 'http://127.0.0.1:5001'
+// export const server = 'https://voting-demo-backend.onrender.com'
 
 const App = () => {
-  const [state, setstate] = useState({
-    server: 'https://voting-demo-backend.onrender.com',
-    // curIdx: 0
-  })
+  // const [state, setstate] = useState({
+  //   server: ,
+  //   // curIdx: 0
+  // })
+  const [curStep,setCurStep] = useState(0)
+  // required input but also prefilled
+  const [setupData,setSetupData] = useState(
+    fields.profile.slider.concat(
+      fields.requirements.slider
+    ).concat(
+      fields.requirements.radio
+    ).filter(e => e.required).map(i =>
+      ({key:i.field, value:i.detail.start})
+    ).reduce((a,item) => (a[item.key] = item.value, a), {})
+  )
+  const [ruleData,setRuleData] = useState({})
+  const [axiomData,setAxiomData] = useState({})
 
-  const [votingProfileForm] = Form.useForm()
-  const profileSetting = Form.useWatch(['no_candidates'],votingProfileForm)
+  const stepContent = [
+    {
+      title: 'Introduction',
+      content: <Intro />
+    },{
+      title: 'Voting Setup',
+      content: <VotingSetup data={setupData} updateData={data => setSetupData({...setupData,...data})} />
+    },{
+      title: 'Existing Voting Rules',
+      content: <ExistingRules data={ruleData} updateData = {data => setRuleData({...ruleData,...data})} />
+    },{
+      title: 'Voting Rule Axioms',
+      content: <VotingAxioms data={axiomData} updateData={data => setAxiomData({...axiomData,...data})}/>
+    },{
+      title: 'Learn New Rules',
+      content: <LearnNewRule data={{setup:setupData,rules:ruleData,axioms:axiomData}}/>
+    }
 
-  const steps = [
-    ['Introduction', <Intro />],
-    ['Voting Profile', <VotingProfile formRef={votingProfileForm} />],
-    ['Existing Rules',<>value: {votingProfileForm.getFieldValue(['no_candidates', 'group_ratio'])} </>],
-    ['Pick Axioms',],
-    ['Learn New Rules',],
   ]
+
+
+
+  // const [votingProfileForm] = Form.useForm()
+  // const no_candidates = Form.useWatch('no_candidates',votingProfileForm)
+  // const group_ratio = Form.useWatch('group_ratio',votingProfileForm)
+
+  // const [existingRulesForm] = Form.useForm()
+  // const use_rule_1 = Form.useWatch('rule1',existingRulesForm)
+
 
   return (
     <div
@@ -43,30 +82,60 @@ const App = () => {
         // border:'1px solid red'
       }}
     >
-      <div>
-        {/* value: {votingProfileForm.getFieldValue(['no_candidates', 'group_ratio'])} */}
-        {/* value: {profileSetting} */}
-      </div>
       <div
         style={{
           height: 800
         }}
       >
-        <Tabs
-          destroyInactiveTabPane={false}
+        <Steps
+          current = {curStep}
         >
-          {steps.map(([name,component],i)=>
-            <Tabs.TabPane
-              tab = {`${i+1}. ${name}`}
-              key = {i}
-              forceRender={true}
-            >
-              {component}
-            </Tabs.TabPane>
+          {stepContent.map(c => 
+            <Steps.Step key={c.title} title={c.title}/>
           )}
-        </Tabs>
+        </Steps>
+        <div
+          style={{
+            margin:10,
+            height:'80%'
+          }}
+        >
+          {stepContent.map((c,i) => 
+            <div 
+            key={c.title}
+            hidden = {i!==curStep}
+            >
+              {c.content}
+            </div>
+          )}
+
+        </div>
+
+        <Row>
+          <Col>
+            <Button
+              // type='primary'
+              onClick={() => {setCurStep(curStep - 1); window.scroll({top:0,left:0,behavior:'smooth'})}}
+              disabled = {curStep === 0}
+            >
+              Prev
+            </Button>
+          </Col>
+          <Col offset={2}>
+            <Button
+              type='primary'
+              onClick = {() => {setCurStep(curStep + 1); window.scroll({top:0,left:0,behavior:'smooth'})}}
+              disabled = {curStep === stepContent.length -1}
+            >
+              Next
+            </Button>
+          </Col>
+        </Row>
 
       </div>
+
+
+      {/* Footer Zone */}
       <div
         style={{
           display: 'flex',

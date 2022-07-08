@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Row, Col, Slider, InputNumber } from 'antd';
 
 const InputSlider = ({inp,onChange}) => {
-	const [number, setNumber] = useState(inp.detail.min)
+	const [number, setNumber] = useState(inp.detail.start)
 
 	// this was hard to figure out. 
 	// Having the component have onChange makes antd form work with it
@@ -20,7 +20,7 @@ const InputSlider = ({inp,onChange}) => {
 					max={inp.detail.max}
 					step={inp.detail.step}
 					value={ number}
-					// defaultValue={inp.detail.min}
+					// defaultValue={inp.required ? inp.detail.start: null}
 					onChange={onNumChange}
 				/>
 			</Col>
