@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import LoadSpinner from './components/loadspinner/LoadSpinner'
+import LoadSpinner from './components/LoadSpinner/LoadSpinner'
 
 ReactDOM.render(
   <React.StrictMode>
