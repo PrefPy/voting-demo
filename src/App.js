@@ -13,8 +13,8 @@ import VotingAxioms from './pages/VotingAxioms/VotingAxioms.js';
 import LearnNewRule from './pages/LearnNewRule/LearnNewRule.js';
 import ApplyRule from './pages/ApplyRule/ApplyRule';
 
-export const server = 'http://127.0.0.1:5001'
-// export const server = 'https://voting-demo-backend.onrender.com'
+// export const server = 'http://127.0.0.1:5001'
+export const server = 'https://voting-demo-backend.herokuapp.com'
 
 const App = () => {
   // const [state, setstate] = useState({
