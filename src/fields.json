@@ -1,84 +1,98 @@
 {
     "profile": {
-        "slider": [{
-            "field": "no_candidates",
-            "label": "Number of Candidates",
-            "info": "Different number of candidates will lead to design of different voting rules",
-            "required": true,
-            "detail": {
-              "min": 2,
-              "max": 4,
-              "step": 1,
-              "start": 2
+        "slider": [
+            {
+                "field": "no_candidates",
+                "label": "Number of Candidates",
+                "info": "Different number of candidates will lead to design of different voting rules",
+                "required": true,
+                "detail": {
+                    "min": 2,
+                    "max": 4,
+                    "step": 1,
+                    "start": 2
+                }
+            },
+            {
+                "field": "group_ratio",
+                "label": "Group Ratio",
+                "info": "Group fairness is computed in terms of group sizes, please enter ratio between the sizes of two groups as (smaller group size)/(larger group size)",
+                "required": true,
+                "detail": {
+                    "min": 0.01,
+                    "max": 1,
+                    "step": 0.01,
+                    "start": 0.5
+                }
             }
-          }, {
-            "field": "group_ratio",
-            "label": "Group Ratio",
-            "info": "Group fairness is computed in terms of group sizes, please enter ratio between the sizes of two groups as (smaller group size)/(larger group size)",
-            "required": true,
-            "detail": {
-              "min": 0.01,
-              "max": 1,
-              "step": 0.01,
-              "start": 0.5
-            }
-        }]
+        ]
     },
     "requirements": {
-        "slider": [{
-            "field": "gr_fair_req",
-            "label": "Group Fairness",
-            "info": "Real number between 0~1. Average group-imbalance based fairness value. Calculated using average rank utility of both groups. Higher value means more fairness.",
-            "required":true,
-            "detail": {
-                "min": 0.01,
-                "max": 1.00,
-                "step": 0.01,
-                "start": 0.5
-            }
-          },{
-            "field": "conc_eff_req",
-            "label": "Condorcet Efficiency",
-            "info": "Real number between 0~1. Fraction of preference profiles where Condorcet winner is chosen if it exists. Higher value means more probability of choosing the Condorcet winner.",
-            "detail": {
-              "min": 0.01,
-              "max": 1.00,
-              "step": 0.01
-            }
-          }],
-        "radio":[
+        "slider": [
             {
-            "field": "privacy_req",
-            "label": "Privacy Requirement",
-            "info": "To design a locally differential private mechanism, noise is added to each voter’s vote. High privacy requirement causes higher noise, low privacy requirement causes lower noise.",
-            "required": true,
-            "detail": {
-              "vals": ["Low","Mid","High"],
-              "start": "Low"
+                "field": "gr_fair_req",
+                "label": "Group Fairness",
+                "info": "Real number between 0~1. Average group-imbalance based fairness value. Calculated using average rank utility of both groups. Higher value means more fairness.",
+                "required": true,
+                "detail": {
+                    "min": 0.01,
+                    "max": 1.00,
+                    "step": 0.01,
+                    "start": 0.5
+                }
+            },
+            {
+                "field": "conc_eff_req",
+                "label": "Condorcet Efficiency",
+                "info": "Real number between 0~1. Fraction of preference profiles where Condorcet winner is chosen if it exists. Higher value means more probability of choosing the Condorcet winner.",
+                "required": true,
+                "detail": {
+                    "start":0.8,
+                    "min": 0.01,
+                    "max": 1.00,
+                    "step": 0.01
+                }
             }
+        ],
+        "radio": [
+            {
+                "field": "privacy_req",
+                "label": "Privacy Requirement",
+                "info": "To design a locally differential private mechanism, noise is added to each voter’s vote. High privacy requirement causes higher noise, low privacy requirement causes lower noise.",
+                "required": true,
+                "detail": {
+                    "vals": [
+                        "Low",
+                        "Mid",
+                        "High"
+                    ],
+                    "start": "Low"
+                }
             }
         ]
     },
     "votingRules": [
         {
-          "field": "rule1",
-          "label": "Trad voting rule 1",
-          "desc": "A description of the voting rule. This does this and that does that"
-        },{
-          "field": "rule2",
-          "label": "Trad voting rule 2",
-          "desc": "A description of the voting rule. This does this and that does that"
+            "field": "rule1",
+            "label": "Trad voting rule 1",
+            "desc": "A description of the voting rule. This does this and that does that"
+        },
+        {
+            "field": "rule2",
+            "label": "Trad voting rule 2",
+            "desc": "A description of the voting rule. This does this and that does that"
         }
     ],
     "votingAxioms": [
         {
-          "field": "axiom1",
-          "label": "Voting Axiom 1",
-          "desc": "A description of the voting axiom. This does this and that does that"
-        },{
-          "field": "axiom2",
-          "label": "Voting Axiom 2",
-          "desc": "A description of the voting axiom. This does this and that does that"
+            "field": "axiom_consistency",
+            "label": "Consistency",
+            "desc": "A description of the voting axiom. This does this and that does that"
+        },
+        {
+            "field": "axiom_monotonicity",
+            "label": "Monotonicity",
+            "desc": "A description of the voting axiom. This does this and that does that"
         }
     ]
 }

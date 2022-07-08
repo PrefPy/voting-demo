@@ -1,7 +1,7 @@
 import { trackPromise } from 'react-promise-tracker'
 import { useState } from 'react'
 import axios from 'axios'
-import { Button, Modal } from 'antd'
+import { Button, Modal,Row,Col } from 'antd'
 
 import { server } from '../../App'
 import ResultTable from '../../components/ResultTable/ResultTable'
@@ -31,7 +31,7 @@ const LearnNewRule = ({data}) => {
           console.log('got this in  return')
           console.log(res.data.display)
           if(res.data.display !== undefined){
-              setState({...state,result:res.data.display[0],learned_models:res.data.learned_models})
+              setState({...state,result:res.data.display.filter(t => t.privacy == data.setup.privacy_req)[0],learned_models:res.data.learned_models})
           }else{
               // console.log(res.data)
               onError()
@@ -43,19 +43,28 @@ const LearnNewRule = ({data}) => {
       })
     )
   }
-  console.log('learn rules here')
-  console.log(data)
-  console.log(state)
 
   return(
     <>
-      {JSON.stringify(data)}
-      <Button
-        type='primary'
-        onClick = {() => onSubmit(data.setup)}
+      <Row
+        style={{
+          paddingTop:'2%'
+        }}
       >
-        Learn voting rules
-      </Button>
+        <Col span={4} offset={10}>
+          <Button
+            type='primary'
+            onClick = {() => onSubmit(data.setup)}
+            style={{
+              width: '100%'
+            }}
+          >
+            Learn voting rules
+          </Button>
+        </Col>
+
+      </Row>
+      
 
 
       <ResultTable resultData = {state.result}/>

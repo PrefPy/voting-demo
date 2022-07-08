@@ -11,6 +11,7 @@ import VotingSetup from './pages/VotingSetup/VotingSetup.js';
 import ExistingRules from './pages/ExistingRules/ExistingRules.js';
 import VotingAxioms from './pages/VotingAxioms/VotingAxioms.js';
 import LearnNewRule from './pages/LearnNewRule/LearnNewRule.js';
+import ApplyRule from './pages/ApplyRule/ApplyRule';
 
 export const server = 'http://127.0.0.1:5001'
 // export const server = 'https://voting-demo-backend.onrender.com'
@@ -39,17 +40,20 @@ const App = () => {
       title: 'Introduction',
       content: <Intro />
     },{
-      title: 'Voting Setup',
+      title: 'Setup',
       content: <VotingSetup data={setupData} updateData={data => setSetupData({...setupData,...data})} />
     },{
       title: 'Existing Voting Rules',
       content: <ExistingRules data={ruleData} updateData = {data => setRuleData({...ruleData,...data})} />
     },{
-      title: 'Voting Rule Axioms',
+      title: 'Voting Axioms',
       content: <VotingAxioms data={axiomData} updateData={data => setAxiomData({...axiomData,...data})}/>
     },{
       title: 'Learn New Rules',
       content: <LearnNewRule data={{setup:setupData,rules:ruleData,axioms:axiomData}}/>
+    },{
+      title: 'Apply Learned Rules',
+      content: <ApplyRule />
     }
 
   ]
